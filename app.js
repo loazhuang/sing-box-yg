@@ -1,8 +1,8 @@
-require('dotenv').config();
+require('dotenv')。config();
 const express = require("express");
 const { spawn, exec } = require("child_process");
 const app = express();
-app.use(express.json());
+app。use(express。json());
 const commandToRun = "cd ~ && bash serv00keep.sh";
 function runCustomCommand() {
     exec(commandToRun, (err, stdout, stderr) => {
@@ -10,11 +10,11 @@ function runCustomCommand() {
         else console.log("执行成功:", stdout);
     });
 }
-app.get("/up", (req, res) => {
+app。get("/up"， (req, res) => {
     runCustomCommand();
     res.type("html").send("<pre>Serv00-name服务器网页保活启动：Serv00-name！UP！UP！UP！</pre>");
 });
-app.get("/re", (req, res) => {
+app。get("/re", (req, res) => {
     const additionalCommands = `
         USERNAME=$(whoami | tr '[:upper:]' '[:lower:]')
         FULL_PATH="/home/\${USERNAME}/domains/\${USERNAME}.serv00.net/logs"
@@ -87,7 +87,7 @@ app.get("/jc", (req, res) => {
 });
 
 app.use((req, res) => {
-    res.status(404).send('请在浏览器地址：http://where.name.serv00.net 后面加三种路径功能：/up是保活，/re是重启，/rp是重置节点端口，/jc是查看当前系统进程，/list/你的uuid 是节点及订阅信息');
+    res.status(404).send('test:Hello, world');
 });
 setInterval(runCustomCommand, (2 * 60 + 15) * 60 * 1000);
 app.listen(3000, () => {

@@ -1416,7 +1416,7 @@ if [[ ":$PATH:" != *":$HOME/bin:"* ]]; then
     source ~/.bashrc
 fi
 if [ "$hona" = "serv00" ]; then
-curl -sL https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/app.js -o "$keep_path"/app.js
+curl -sL https://raw.githubusercontent.com/yonggekkk/loazhuanag/main/app.js -o "$keep_path"/app.js
 sed -i '' "15s/name/$snb/g" "$keep_path"/app.js
 sed -i '' "59s/key/$UUID/g" "$keep_path"/app.js
 sed -i '' "90s/name/$USERNAME/g" "$keep_path"/app.js
